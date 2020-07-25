@@ -1,0 +1,50 @@
+* /home/ameya/esim-workspace/4bb/4bb.cir
+
+.include ua741.sub
+.include sw4.sub
+r5  net-_r5-pad1_ net-_r5-pad2_ 1k
+r6  net-_r5-pad2_ net-_r6-pad2_ 1k
+r7  net-_r6-pad2_ net-_r7-pad2_ 1k
+r8  net-_r7-pad2_ gnd 1k
+r9  net-_r7-pad2_ net-_r10-pad1_ 1k
+r10  net-_r10-pad1_ net-_r10-pad2_ 1k
+r11  net-_r10-pad2_ net-_r11-pad2_ 1k
+r12  net-_r11-pad2_ gnd 1k
+vdd1  net-_r5-pad1_ gnd 3.3
+* u1  ? plot_v1
+r1  out1 net-_r1-pad2_ 10k
+r2  out2 net-_r1-pad2_ 10k
+x1 net-_r1-pad2_ net-_r3-pad1_ /aout ua741
+v1  vdd gnd 3.3
+* u3  ? plot_v1
+* u4  ? plot_v1
+* u5  ? plot_v1
+* u6  ? plot_v1
+v2  d0 gnd pulse(0 1.8 0 50p 50p 20n 40n)
+v3  d1 gnd pulse(0 1.8 5n 50p 50p 20n 40n)
+v4  d2 gnd pulse(0 1.8 10n 50p 50p 20n 40n)
+v5  d3 gnd pulse(0 1.8 15n 50p 50p 20n 40n)
+* u2  /aout plot_v1
+r4  net-_r3-pad1_ /aout 10k
+r3  net-_r3-pad1_ gnd 10k
+x2 d0 vdd net-_r5-pad2_ net-_r6-pad2_ net-_x2-pad5_ gnd sw4
+x3 d0 vdd net-_r6-pad2_ net-_r7-pad2_ net-_x3-pad5_ gnd sw4
+x4 d1 vdd net-_x2-pad5_ net-_x3-pad5_ out1 gnd sw4
+x5 d2 vdd net-_r10-pad1_ net-_r10-pad2_ net-_x5-pad5_ gnd sw4
+x6 d2 vdd net-_r10-pad2_ net-_r11-pad2_ net-_x6-pad5_ gnd sw4
+x7 d3 vdd net-_x5-pad5_ net-_x6-pad5_ out2 gnd sw4
+.tran 0.5e-09 120e-09 0e-09
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+plot v(?)
+plot v(?)
+plot v(?)
+plot v(?)
+plot v(?)
+plot v(/aout)
+.endc
+.end

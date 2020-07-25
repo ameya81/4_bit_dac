@@ -1,0 +1,8 @@
+e.x1.ein1#branch = 0.000000e+00
+e.x1.eout1#branch = -1.41367e-04
+v1#branch = -1.20610e-09
+v2#branch = 0.000000e+00
+v3#branch = 0.000000e+00
+v4#branch = 0.000000e+00
+v5#branch = 0.000000e+00
+vdd1#branch = -1.10001e-03

@@ -1,0 +1,41 @@
+* /home/ameya/eSim-Workspace/4bb/4bb.cir
+
+* EESchema Netlist Version 1.1 (Spice format) creation date: Sun Jul 26 01:36:29 2020
+
+* To exclude a component from the Spice Netlist add [Spice_Netlist_Enabled] user FIELD set to: N
+* To reorder the component spice node sequence add [Spice_Node_Sequence] user FIELD and define sequence: 2,1,0
+
+* Sheet Name: /
+R5  Net-_R5-Pad1_ Net-_R5-Pad2_ 1k		
+R6  Net-_R5-Pad2_ Net-_R6-Pad2_ 1k		
+R7  Net-_R6-Pad2_ Net-_R7-Pad2_ 1k		
+R8  Net-_R7-Pad2_ gnd 1k		
+R9  Net-_R7-Pad2_ Net-_R10-Pad1_ 1k		
+R10  Net-_R10-Pad1_ Net-_R10-Pad2_ 1k		
+R11  Net-_R10-Pad2_ Net-_R11-Pad2_ 1k		
+R12  Net-_R11-Pad2_ gnd 1k		
+vdd1  Net-_R5-Pad1_ gnd 3.3		
+U1  ? plot_v1		
+R1  out1 Net-_R1-Pad2_ 10k		
+R2  out2 Net-_R1-Pad2_ 10k		
+X1  Net-_R1-Pad2_ Net-_R3-Pad1_ /aout UA741		
+v1  vdd gnd 3.3		
+U3  ? plot_v1		
+U4  ? plot_v1		
+U5  ? plot_v1		
+U6  ? plot_v1		
+v2  d0 gnd pulse		
+v3  d1 gnd pulse		
+v4  d2 gnd pulse		
+v5  d3 gnd pulse		
+U2  /aout plot_v1		
+R4  Net-_R3-Pad1_ /aout 10k		
+R3  Net-_R3-Pad1_ gnd 10k		
+X2  d0 vdd Net-_R5-Pad2_ Net-_R6-Pad2_ Net-_X2-Pad5_ gnd sw4		
+X3  d0 vdd Net-_R6-Pad2_ Net-_R7-Pad2_ Net-_X3-Pad5_ gnd sw4		
+X4  d1 vdd Net-_X2-Pad5_ Net-_X3-Pad5_ out1 gnd sw4		
+X5  d2 vdd Net-_R10-Pad1_ Net-_R10-Pad2_ Net-_X5-Pad5_ gnd sw4		
+X6  d2 vdd Net-_R10-Pad2_ Net-_R11-Pad2_ Net-_X6-Pad5_ gnd sw4		
+X7  d3 vdd Net-_X5-Pad5_ Net-_X6-Pad5_ out2 gnd sw4		
+
+.end
